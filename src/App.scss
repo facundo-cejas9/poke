@@ -1,0 +1,850 @@
+/*---Variables-----*/
+$primary-color: red;
+$secondary-color: #61dafb;
+$control-pad-color: rgb(41, 42, 37);
+
+/*---Variables-----*/
+
+
+/*-----Mixins--------*/
+
+@mixin dots {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: 2.5px solid rgba(233, 228, 228, 0.603);
+    
+    box-shadow: 1px 1px;
+    
+}
+@mixin orangeblue {
+    width: 4rem;
+    height: 1rem;
+    border-radius: 10px;
+    border: 2.5px solid rgba(233, 228, 228, 0.603);
+    
+    border-style: outset;
+    outline: none;
+    box-shadow: 2px 2px;
+    &:hover {
+      cursor:pointer;
+    }
+}
+
+@mixin upDown {
+    height: 2rem;
+    width: 2rem;
+    border: 3px solid rgba(100, 97, 97, 0.986);
+    box-shadow: 1px 2px rgba(7, 7, 7, 0.205);
+    background: linear-gradient(90deg, #696767 0, #aaaaaa 30%, #aaa7a7 45%, #faf9f9 65%, #cecece 95%);
+    
+}
+
+@mixin arriba {
+    height: 1.2rem;
+    width: 1.2rem;
+    border: 3px solid rgba(100, 97, 97, 0.986);
+    box-shadow: 1px 2px rgba(7, 7, 7, 0.205);
+    background: linear-gradient(90deg, #696767 0, #aaaaaa 30%, #aaa7a7 45%, #faf9f9 65%, #cecece 95%);
+    
+}
+
+@mixin Right {
+    height: 2rem;
+    width: 3rem;
+    margin-left: .3rem;
+    border: 3px solid rgba(100, 97, 97, 0.986);
+    background: linear-gradient(90deg, #696767 0, #aaaaaa 30%, #aaa7a7 45%, #faf9f9 65%, #cecece 95%);
+
+    
+}
+
+@mixin left {
+    height: 2rem;
+    width: 3rem;
+    border: 3px solid rgba(100, 97, 97, 0.986);
+    background: linear-gradient(90deg, #696767 0, #aaaaaa 30%, #aaa7a7 45%, #faf9f9 65%, #cecece 95%);
+    
+    
+}
+
+
+@mixin izq {
+    height: 1rem;
+    width: 2rem;
+    margin-left: .3rem;
+    border: 3px solid rgba(100, 97, 97, 0.986);
+    background: linear-gradient(90deg, #696767 0, #aaaaaa 30%, #aaa7a7 45%, #faf9f9 65%, #cecece 95%);
+
+    
+}
+
+@mixin dere {
+    height: 1rem;
+    width: 2rem;
+    border: 3px solid rgba(100, 97, 97, 0.986);
+    background: linear-gradient(90deg, #696767 0, #aaaaaa 30%, #aaa7a7 45%, #faf9f9 65%, #cecece 95%);
+    
+    
+}
+
+@mixin lightblue-btn {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    border: 3px solid rgb(192, 189, 189);
+    box-shadow: 5px 2px rgba(14, 13, 13, 0.205);
+    background: radial-gradient(circle at 30px 30px, rgb(254, 255, 255), rgb(8, 4, 241));
+}
+
+
+@mixin azulito {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    border: 3px solid rgb(192, 189, 189);
+    box-shadow: 5px 2px rgba(14, 13, 13, 0.205);
+    background: radial-gradient(circle at 30px 30px, rgb(254, 255, 255), rgb(8, 4, 241));
+}
+
+
+
+
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+  @mixin flex-row {
+    display: flex;
+    flex-direction: row;
+  }
+
+/*----------------Mixins */
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(41, 41, 41, 1) 4%,
+        rgba(49, 49, 49, 1) 24%,
+        rgba(128, 128, 128, 1) 64%,
+        rgba(138, 138, 138, 1) 70%,
+        rgba(230, 230, 230, 1) 81%,
+        rgba(255, 255, 255, 1) 86%,
+        rgba(220, 220, 220, 1) 89%,
+        rgba(230, 230, 230, 1) 100%
+    );
+    background-color: #09a8ff;
+    background-blend-mode: overlay;
+    
+}
+
+
+.App {
+    text-align: center;
+    @include flex-row;
+    max-width: 900px;
+    width: 40%;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+
+.pokedex-container {
+    background: linear-gradient(90deg, #891313 0, #b31818 30%, #e61515 45%, #fd5555 65%, #e61515 95%);
+    flex: 10;
+    width: 100%;
+    height: 50rem;
+    width: 30rem;
+    margin: auto;
+    border: 6px solid rgb(253, 243, 243);
+    border-style: outset;
+    border-radius: 30px;
+    box-shadow: 10px 5px black;
+    .top-buttons {
+        height: 7rem;
+        width: 100%;
+        display: flex;
+        margin-left: 2rem;
+        .light {
+            @include lightblue-btn;
+            margin-top: 2rem;
+            
+        }
+
+    }
+}
+
+
+
+.three-dots {
+    margin-top: .9rem;
+    height: 2rem;
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    div:nth-child(1) {
+        @include dots;
+        background: linear-gradient(90deg, #891313 0, #b31818 30%, #e61515 45%, #fd5555 65%, #e61515 95%)
+    }
+
+    div:nth-child(2) {
+        @include dots;
+        background: linear-gradient(90deg, #898713 0, #a4b318 30%, #d8e615 45%, #fafd55 65%, #e6e315 95%);
+    }
+
+    div:nth-child(3) {
+        @include dots;
+        background: linear-gradient(90deg, #13891d 0, #1db318 30%, #46e615 45%, #55fd63 65%, #1ce615 95%);
+
+    }
+    
+    
+}
+
+.image-container {
+    height: 20rem;
+    
+    .gray-container {
+        background: linear-gradient(90deg, #444343 0, #999393 30%, #e6c5c5 45%, #bebbbb 65%, #504d4d 95%);
+        height: 90%;
+        
+        width: 80%;
+        margin: auto;
+        margin-top: 3rem;
+        border: 1px solid rgba(73, 70, 70, 0.473);
+        border-style: outset;
+        border-radius: 10px 10px 10px 60px;
+        box-shadow: 2px 2px;
+
+        .two-dot-container {
+            height: 2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+
+            div {
+                height: 1.3rem;
+                width: 1.3rem;
+                background: linear-gradient(90deg, #891313 0, #b31818 30%, #e61515 45%, #fd5555 65%, #e61515 95%);
+                border-radius: 50%;
+                margin: .5rem;
+                border: 2px solid rgba(175, 81, 81, 0.473);
+                box-shadow: 1px 1px;
+            }
+        }
+    }   .poke-image {
+        height: 60%;
+        width: 80%;
+        background-color: black;
+        margin: auto;
+
+        img {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(30deg, #0f4620 1%, #13894e 30%, #18b34c 45%, #55fd87 65%, #18b325 95%);
+            border: 5px solid rgb(104, 92, 92);
+            border-style: inset;
+            z-index: 2;
+        }
+    }
+    .under-poke-image {
+        height: 3rem;
+        width: 90%;
+        margin: auto;
+        @include flex-row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .red-dot {
+        height: 1.5rem;
+        width: 1.5rem;
+        border-radius: 50%;
+        background: linear-gradient(90deg, #891313 0, #b31818 30%, #e61515 45%, #fd5555 65%, #e61515 95%);
+        border: 2px solid rgba(175, 81, 81, 0.473);
+        border-style: outset;
+        box-shadow: 1.5px 1.5px;
+      }
+}
+
+.lines-container {
+    width: 2.5rem;
+    height: 2rem;
+    margin-right: 1rem;
+    @include flex-column;
+
+    div {
+        height: 100px;
+        width: 100%;
+        border-bottom: 2px solid gray;
+    }
+}
+
+.controls-container {
+    margin-top: 1rem;
+    height: 10rem;
+    @include flex-row;
+    .enter-btn {
+        width: 20%;
+        margin-left: .5rem;
+        @include flex-row;
+        justify-content: center;
+        align-items: center;
+        &:hover {
+            cursor: pointer;
+        }
+
+        div {
+            height: 4rem;
+            width: 4rem;
+            margin-bottom: 2rem;
+            border: 3px solid rgba(100, 97, 97, 0.986);
+            box-shadow: 1px 2px rgba(7, 7, 7, 0.205);
+            background: linear-gradient(90deg, #696767 0, #aaaaaa 30%, #aaa7a7 45%, #faf9f9 65%, #cecece 95%);
+            border-radius: 50%;
+        }
+
+        div:active {
+            transform: translateY(1px);
+            box-shadow: 1px 3px $control-pad-color;
+        }
+    }
+}
+
+.middle-btns {
+    width: 50%;
+    .orange-blue-btns {
+        margin-top: .5rem;
+        @include flex-row;
+        justify-content: space-around;
+        button:nth-child(1) {
+            @include orangeblue;
+            background: linear-gradient(90deg, #894813 0, #b37d18 30%, #e67315 45%, #fdc255 65%, #e67a15 95%);
+            
+        }
+        button:nth-child(2) {
+            @include orangeblue;
+            background: linear-gradient(90deg, #131b89 0, #2718b3 30%, #3b15e6 45%, #5855fd 65%, #2315e6 95%);
+        }
+    }
+        .orange-blue-btns button:active {
+            transform: translateY(1.2px);
+            box-shadow: 1px 2px $control-pad-color;
+        }
+    
+}
+
+.green-screen {
+    width: 100%;
+    margin: auto;
+    margin-top: 1rem;
+    height: 11.5rem;
+    background: linear-gradient(10deg, #0f4620 1%, #13894e 30%, #18b34c 45%, #55fd87 65%, #18b325 95%);
+    border: 5px solid rgb(104, 92, 92);
+    border-style: inset;
+
+}
+
+.control-pad {
+    margin-top: 3rem;
+    justify-content: center;
+    width: 30%;
+    @include flex-column;
+    .lbr {
+        @include flex-row;
+        justify-content: center;
+    }
+    .up {
+        @include upDown;
+        border-radius: 5px 8px 1px 0;
+        border-style: outset;
+        margin-left: 3.5rem;
+        &:active {
+            box-shadow: 0 .5px $control-pad-color;
+            transform: translateY(-.5px);
+          }
+          &:hover {
+            cursor:pointer;
+          }
+    }
+
+  
+
+      .down {
+        @include upDown;
+        margin-left: 3.5rem;
+        border-style: outset;
+        border-radius: 0 0 8px 8px;
+        &:active {
+          box-shadow: 0 .5px $control-pad-color;
+          transform: translateY(-.5px);
+        }
+        &:hover {
+          cursor:pointer;
+        }
+      }
+    
+      .left {
+        @include Right;
+        border-radius: 5px 0 0 5px;
+        color: black;
+        font-size: 1rem;
+        border-style: outset;
+        &:active {
+          transform: translate(.1px, .8px);
+          box-shadow: 0 0;
+        }
+        &:hover {
+          cursor:pointer;
+        }
+      }
+
+      .right {
+        @include left;
+        border-radius: 0px 5px 5px 0px;
+        border-style: outset;
+        color: black;
+        font-size: 1rem;
+        &:active {
+          transform: translate(.1px, .8px);
+          box-shadow: 0 0;
+        }
+        &:hover {
+          cursor:pointer;
+        }
+      }
+    
+    
+
+
+}
+
+.pokemon {
+    margin-top: 5rem;
+}
+
+.poke-boton {
+    width: 20%;
+    height: 25px;
+    color: white;
+    font-size: 1rem;
+    margin-top: .5rem;
+    border-radius: 2rem;
+    background: linear-gradient(10deg, #0f4620 1%, #13894e 30%, #18b34c 45%, #55fd87 65%, #18b325 95%);
+    transition: ease-out .3s;
+    &:hover {
+        border-color: lightgreen;
+        transition: ease-in .2s;
+    }
+}
+
+
+
+.poke-input {
+    width: 30%;
+    color: white;
+    background: linear-gradient(10deg, #0f4620 1%, #13894e 30%, #18b34c 45%, #55fd87 65%, #18b325 95%);
+}
+
+.imagen {
+    border-style: inset;
+    
+}
+
+.imagensuli {
+    border-style: inset;
+    
+    transition: .5s ease;
+}
+
+.power {
+    margin-top: .8rem;
+    &:hover {
+        -webkit-filter: grayscale(1);
+        filter: grayscale(1);
+    }
+}
+
+.find {
+    margin-top: 5rem;
+    font-size: 1.3rem;
+    color: 2rem;
+}
+
+
+
+@media screen and (max-width: 400px){
+
+
+
+
+    .App {
+        text-align: center;
+        @include flex-row;
+        max-width: 900px;
+        width: 50%;
+        margin: 0 ;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2rem;
+    }
+
+    
+    
+
+    .pokedex-container {
+        background: linear-gradient(90deg, #891313 0, #b31818 30%, #e61515 45%, #fd5555 65%, #e61515 95%);
+        flex: 10;
+        width: 100%;
+        height: 39rem;
+        width: 23rem;
+        margin: auto;
+        border: 6px solid rgb(253, 243, 243);
+        border-style: outset;
+        border-radius: 30px;
+        box-shadow: 10px 5px black;
+        .top-buttons {
+            height: 7rem;
+            width: 100%;
+            display: flex;
+            margin-left: 2rem;
+            .light {
+                @include azulito;
+                margin-top: 2rem;
+                
+            }
+    
+        }
+    }
+    
+    
+    
+    .three-dots {
+        margin-top: .9rem;
+        height: 2rem;
+        margin-top: 1.5rem;
+        margin-left: 1rem;
+        width: 30%;
+        display: flex;
+        justify-content: space-around;
+        div:nth-child(1) {
+            @include dots;
+            background: linear-gradient(90deg, #891313 0, #b31818 30%, #e61515 45%, #fd5555 65%, #e61515 95%)
+        }
+    
+        div:nth-child(2) {
+            @include dots;
+            background: linear-gradient(90deg, #898713 0, #a4b318 30%, #d8e615 45%, #fafd55 65%, #e6e315 95%);
+        }
+    
+        div:nth-child(3) {
+            @include dots;
+            background: linear-gradient(90deg, #13891d 0, #1db318 30%, #46e615 45%, #55fd63 65%, #1ce615 95%);
+    
+        }
+        
+        
+    }
+    
+    .image-container {
+        height: 15rem;
+
+        
+        .gray-container {
+            background: linear-gradient(90deg, #444343 0, #999393 30%, #e6c5c5 45%, #bebbbb 65%, #504d4d 95%);
+            height: 100%;
+            
+            width: 80%;
+            
+            margin-top: 1rem;
+            border: 1px solid rgba(73, 70, 70, 0.473);
+            border-style: outset;
+            border-radius: 10px 10px 10px 60px;
+            box-shadow: 2px 2px;
+    
+            .two-dot-container {
+                height: 2rem;
+                margin-bottom: 1rem;
+                display: flex;
+                justify-content: center;
+    
+                div {
+                    height: 1.3rem;
+                    width: 1.3rem;
+                    background: linear-gradient(90deg, #891313 0, #b31818 30%, #e61515 45%, #fd5555 65%, #e61515 95%);
+                    border-radius: 50%;
+                    margin: .5rem;
+                    border: 2px solid rgba(175, 81, 81, 0.473);
+                    box-shadow: 1px 1px;
+                }
+            }
+        }   .poke-image {
+            height: 50%;
+            width: 80%;
+            background-color: black;
+            margin: auto;
+    
+            img {
+                height: 100%;
+                width: 100%;
+                background: linear-gradient(30deg, #0f4620 1%, #13894e 30%, #18b34c 45%, #55fd87 65%, #18b325 95%);
+                border: 5px solid rgb(104, 92, 92);
+                border-style: inset;
+                z-index: 2;
+            }
+        }
+        .under-poke-image {
+            height: 3rem;
+            width: 90%;
+            margin: auto;
+            @include flex-row;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .red-dot {
+            height: 1.5rem;
+            width: 1.5rem;
+            border-radius: 50%;
+            background: linear-gradient(90deg, #891313 0, #b31818 30%, #e61515 45%, #fd5555 65%, #e61515 95%);
+            border: 2px solid rgba(175, 81, 81, 0.473);
+            border-style: outset;
+            box-shadow: 1.5px 1.5px;
+          }
+    }
+    
+    .lines-container {
+        width: 1.5rem;
+        height: 2rem;
+        margin-right: 1rem;
+        @include flex-column;
+    
+        div {
+            height: 100px;
+            width: 100%;
+            border-bottom: 2px solid rgb(0, 0, 0);
+        }
+    }
+    
+    .controls-container {
+        margin-top: 1rem;
+        height: 10rem;
+        @include flex-row;
+        .enter-btn {
+            width: 50%;
+            
+            margin-left: .5rem;
+            @include flex-row;
+            justify-content: center;
+            align-items: center;
+            &:hover {
+                cursor: pointer;
+            }
+    
+            div {
+                height: 4rem;
+                width: 4rem;
+                margin-bottom: 2rem;
+                border: 3px solid rgba(100, 97, 97, 0.986);
+                box-shadow: 1px 2px rgba(7, 7, 7, 0.205);
+                background: linear-gradient(90deg, #696767 0, #aaaaaa 30%, #aaa7a7 45%, #faf9f9 65%, #cecece 95%);
+                border-radius: 50%;
+            }
+    
+            div:active {
+                transform: translateY(1px);
+                box-shadow: 1px 3px $control-pad-color;
+            }
+        }
+    }
+    
+    .middle-btns {
+        width: 80%;
+        .orange-blue-btns {
+            margin-top: .5rem;
+            @include flex-row;
+            justify-content: space-around;
+            button:nth-child(1) {
+                @include orangeblue;
+                background: linear-gradient(90deg, #894813 0, #b37d18 30%, #e67315 45%, #fdc255 65%, #e67a15 95%);
+                
+            }
+            button:nth-child(2) {
+                @include orangeblue;
+                background: linear-gradient(90deg, #131b89 0, #2718b3 30%, #3b15e6 45%, #5855fd 65%, #2315e6 95%);
+            }
+        }
+            .orange-blue-btns button:active {
+                transform: translateY(1.2px);
+                box-shadow: 1px 2px $control-pad-color;
+            }
+        
+    }
+    
+    .green-screen {
+        width: 100%;
+        margin: 0;
+        margin-top: .5rem;
+        height: 10rem;
+        background: linear-gradient(10deg, #0f4620 1%, #13894e 30%, #18b34c 45%, #55fd87 65%, #18b325 95%);
+        border: 5px solid rgb(104, 92, 92);
+        border-style: inset;
+    
+    }
+    
+    .control-pad {
+        margin-top: 5rem;
+        justify-content: center;
+        width: 30%;
+        @include flex-column;
+        .lbr {
+            @include flex-row;
+            justify-content: center;
+            padding-left: 1.2rem;
+            padding-right: 1rem;
+        }
+        .up {
+            @include arriba;
+            margin-left: 3rem;
+            
+           
+            &:active {
+                box-shadow: 0 .5px $control-pad-color;
+                transform: translateY(-.5px);
+              }
+              &:hover {
+                cursor:pointer;
+              }
+        }
+    
+      
+    
+          .down {
+            @include arriba;
+            margin-left: 3rem;
+
+           
+            &:active {
+              box-shadow: 0 .5px $control-pad-color;
+              transform: translateY(-.5px);
+            }
+            &:hover {
+              cursor:pointer;
+            }
+          }
+        
+          .right {
+            @include dere;
+            border-radius: .5rem;
+            color: black;
+            font-size: 1rem;
+            border-style: outset;
+            &:active {
+              transform: translate(.1px, .8px);
+              box-shadow: 0 0;
+            }
+            &:hover {
+              cursor:pointer;
+            }
+          }
+    
+          .left {
+            @include izq;
+            border-radius: .5rem;
+            border-style: outset;
+            color: black;
+            font-size: 1rem;
+            &:active {
+              transform: translate(.1px, .8px);
+              box-shadow: 0 0;
+            }
+            &:hover {
+              cursor:pointer;
+            }
+          }
+        
+        
+    
+    
+    }
+    
+    .pokemon {
+        margin-top: 2.5rem;
+    }
+    
+    .poke-boton {
+        padding-left: 2rem;
+        height: 20px;
+        margin-left: 1rem;
+        display: inline-block;
+        color: white;
+        
+      
+        border-radius: 2rem;
+        background: linear-gradient(10deg, #0f4620 1%, #13894e 30%, #18b34c 45%, #55fd87 65%, #18b325 95%);
+        transition: ease-out .3s;
+        &:hover {
+            border-color: lightgreen;
+            transition: ease-in .2s;
+        }
+    }
+    
+    
+    
+    .poke-input {
+        width: 20%;
+        color: white;
+        background: linear-gradient(10deg, #0f4620 1%, #13894e 30%, #18b34c 45%, #55fd87 65%, #18b325 95%);
+        
+    }
+
+    
+    
+    .imagen {
+        border-style: inset;
+        
+    }
+    
+    .imagensuli {
+        border-style: inset;
+        
+        transition: .5s ease;
+    }
+    
+    .power {
+        margin-top: .8rem;
+        &:hover {
+            -webkit-filter: grayscale(1);
+            filter: grayscale(1);
+        }
+    }
+    
+    .find {
+        margin-top: 3rem;
+        font-size: 1.3rem;
+        color: 2rem;
+    }
+
+    .cami {
+        display: inline-block;
+    }
+    
+    .princi {
+        margin-bottom: .6rem;
+        font-size: 1rem;
+    }
+
+    .segundos {
+        margin-top: 0rem;
+        margin-bottom: .5rem;
+    }
+
+}
+    
